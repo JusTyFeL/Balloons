@@ -1,17 +1,31 @@
 .book
     height: 50rem
-    background: linear-gradient(110deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.7) 56%, rgba(186,133,84,0.6) 56%, rgba(161,79,3,0.6) 100%), url(../img/form.jpg) center / cover no-repeat
+    background: linear-gradient(110deg, rgba(255,255,255,0.7) 60%, rgba(255,255,255,0.7) 60%, rgba(186,133,84,0.6) 60%, rgba(161,79,3,0.6) 100%), url(../img/form.jpg) center / cover no-repeat
     box-shadow: $box-shadow
     border-radius: .7rem
     overflow: hidden
+    @include respond(tab-port)
+        background: linear-gradient(110deg, rgba(255,255,255,0.7) 60%, rgba(255,255,255,0.7) 60%, rgba(186,133,84,0.6) 600%, rgba(161,79,3,0.6) 100%), url(../img/form.jpg) center / cover no-repeat
+
 .form
-    width: 60%
+    width: 70%
     padding-top: 5rem
     padding-left: 5rem
+    @include respond(tab-port)
+        width: 100%
+        padding-top: 3rem
+        padding-left: 3rem
     &__group:not(:last-child)
         margin-bottom: 2rem
     &__group:nth-child(4)
         margin-bottom: 4rem
+    @include respond(tab-land)
+        &__group:not(:last-child)
+            margin-bottom: 0rem
+        &__group:nth-child(4)
+            margin-bottom: 3rem
+
+        
         
 
     &__input
@@ -25,6 +39,9 @@
         border-bottom: .3rem solid transparent
         border-radius: .5rem
         width: 77%
+        @include respond(tab-port)
+            width: 90%
+            box-shadow: $box-shadow
         &:focus
             outline: none
             border-bottom: .3rem solid #66D763
@@ -47,9 +64,13 @@
         transform: translateY(-1rem)
 
     &__group-radio
-        width: 40%
         display: inline-block
-
+        &:not(:last-child)
+            margin-right: 2rem
+        @include respond(tab-land)
+            display: block
+            &:not(:last-child)
+                margin-bottom: 2.3rem
     &__input-radio
         display: none
 
@@ -57,7 +78,7 @@
         cursor: pointer
         position: relative
         padding-left: 3.5rem
-        
+    
     &__button-radio
         height: 3rem
         width: 3rem
